@@ -6,7 +6,7 @@ run the container:
     
 dependency containers:
     
-    docker run --restart=always --name iris2db --volumes-from=iris2_data --link iris2db:iris2db -e MYSQL_ROOT_PASSWORD=<secret_password> -d mariadb:5.5
+    docker run --restart=always --name iris2db --volumes-from=iris2_data -e MYSQL_ROOT_PASSWORD=<secret_password> -d mariadb:5.5
     
     docker run --restart=always --env-file=/configuration_files/.secret -v /etc/localtime:/etc/localtime:ro --name=postfixcontainer -d eeacms/postfix:eionet
 
