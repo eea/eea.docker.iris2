@@ -22,4 +22,6 @@ moving data volume containers from one host to another:
     docker run -d --name iris2_data eeacms/mysql_data
 
     docker run --rm --volumes-from=iris2_home -v $(pwd):/backups busybox tar xvf /backups/iris2_home.tar
+    docker run --rm --volumes-from=iris2_home -v $(pwd):/backups busybox chmod a+w /var/www/iris2/irisii_app/cache
+    
     docker run --rm --volumes-from=iris2_data -v $(pwd):/backups busybox tar xvf /backups/iris2_data.tar
