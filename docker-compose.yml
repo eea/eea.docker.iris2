@@ -9,17 +9,16 @@ iris2:
   - postfixcontainer:postfixcontainer
 
 #  - memory_limit=35000
-
-  volumes-from:
+  volumes_from:
   - iris2_home
 
 iris2db:
   restart: always
   image: mariadb:5.5
-  environment:
-  - MYSQL_ROOT_PASSWORD=<secret_password>
-  volumes-from:
+  volumes_from:
   - iris2_data
+  environment:
+  - MYSQL_ROOT_PASSWORD=changeme
 
 postfixcontainer:
   restart: always
