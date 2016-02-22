@@ -1,5 +1,15 @@
 # eea.docker.iris2
 
+run the container with docker-compose:
+
+create the data container iris2_home and iris2_data (see below)
+
+    git clone <reponame>
+    
+    docker-compose build 
+    
+    docker-compose up -d
+
 run the container: 
 
     docker run --restart=always --name iris2 --link postfixcontainer:postfixcontainer --link iris2db:iris2db --volumes-from=iris2_home -p <port_host>:80 -d eeacms/iris2
