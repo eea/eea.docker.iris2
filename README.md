@@ -26,13 +26,13 @@ moving data volume containers from one host to another:
 
 
 
-<donor host>
+- donor host
 
     docker run --rm --volumes-from=iris2_home -v $(pwd):/backup busybox tar cvf /backup/iris2_home.tar /var/www
     
     docker run --rm --volumes-from=iris2_data -v $(pwd):/backup busybox tar cvf /backup/iris2_data.tar /var/lib/mysql
 
-<target host>
+- target host
 
     docker run -d --name iris2_home eeacms/php_data
     docker run -d --name iris2_data eeacms/mysql_data
