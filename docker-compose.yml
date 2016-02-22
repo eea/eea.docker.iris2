@@ -1,0 +1,31 @@
+iris2:
+  build: iris2
+  restart: always
+  ports:
+  - "50003:80"
+
+  links:
+  - iris2db:iris2db
+  - postfixcontainer:postfixcontainer
+
+#  - memory_limit=35000
+
+  volumes-from:
+  - iris2_home
+
+iris2db:
+  restart: always
+  image: mariadb:5.5
+  environment:
+  - MYSQL_ROOT_PASSWORD=<secret_password>
+  volumes-from:
+  - iris2_data
+
+postfixcontainer:
+  restart: always
+  image: eeacms/postfix:eionet
+  volumes:
+  - /etc/localtime:/etc/localtime:ro
+
+  env_file:
+  - /configuration_files/.secret
