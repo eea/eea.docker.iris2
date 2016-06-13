@@ -10,7 +10,7 @@ create the data container iris2_home and iris2_data (see below)
 # docker-compose up -d
 ```
 
-run the container: 
+run the container without docker-compose: 
 
 ```
 # docker run --restart=always --name iris2 --link postfixcontainer:postfixcontainer --link iris2db:iris2db --volumes-from=iris2_home -p <port_host>:80 -d eeacms/iris2
